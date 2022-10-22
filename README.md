@@ -73,6 +73,12 @@
 
 
 ---
+### 我的打包文件下载
+1. 在GitHub页面右边的 **发行版Releases**  
+2. [【蓝奏云】](https://wwt.lanzoue.com/iE2XZ0eeqexc) 密码:diy  
+
+
+---
 
 ### 更新日志：（倒序）  
 2022年10月23日 发布在GitHub  
