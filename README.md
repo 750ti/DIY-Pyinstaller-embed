@@ -35,7 +35,7 @@
 3. 代码加密？ 加密方法见原作者描述
 4. **运行程序**：
    - 运行`PyStand.exe`程序会调用`python`运行与程序同名的`.int`文件，比如`PyStand.int`，将py代码写入`.int`文件内即可
-### PyInstaller
+### 3. 【PyInstaller】
 参考文章： [【知乎】](https://zhuanlan.zhihu.com/p/470301078) / [【CSDN过程+去坑】](https://blog.csdn.net/hdudb/article/details/122055537)  
 1. 安装Pyinstaller，`pip install pyinstaller`
 2. 在`.py`文件的目录运行打开cmd命令窗口
@@ -46,9 +46,10 @@
 `-D` 大写,默认选项可不填。D是onedir，打包生成多个依赖文件和exe程序，放在一个文件夹内，略显凌乱，但启动速度快，可以在上层目录用 BAT调用程序启动。(或PyStand调用)  
 `-c` 显示命令行窗口  
 `-w` 不显示命令行窗口，去除黑框框  
-`-i` 修改生成exe程序的图标，ico格式尺寸16*16 32*32等  
+`-i` 修改生成exe程序的图标，ico格式尺寸16x16、32x32等  
 示例：`pyinstaller -w -i D:\123.ico demo.py`  
 4. 其它可能会出现的问题，有些库可能打包不全，需要手动复制到文件夹内  
+- Pyinstaller + UPX 打包程序（不太重要） [【相关视频】](https://www.bilibili.com/video/BV1j341137De/)
 
 > 未完待续...
 
