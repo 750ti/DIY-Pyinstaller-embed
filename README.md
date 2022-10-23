@@ -34,7 +34,8 @@
 2. **第三方库**，把电脑中相同的Python环境的库复制到`site-packages`(不过很容易漏掉，一个库通常包含多个文件夹)
 3. 代码加密？ 加密方法见原作者描述
 4. **运行程序**：
-   - 运行`PyStand.exe`程序会调用`python`运行与程序同名的`.int`文件，比如`PyStand.int`，将py代码写入`.int`文件内即可
+   - 运行`PyStand.exe`程序会调用`runtime\python.exe`解释器运行与程序同名的`.int`文件，如`PyStand.int`，将py代码复制到`.int`文件内即可
+   - 在cmd中运行`PyStand.exe`程序可以在黑框框显示`print`调试输出 和报错等内容，方便检查。
 ### 3. 【PyInstaller】
 参考文章： [【知乎】](https://zhuanlan.zhihu.com/p/470301078) / [【CSDN过程+去坑】](https://blog.csdn.net/hdudb/article/details/122055537)  
 1. 安装Pyinstaller，`pip install pyinstaller`
@@ -66,22 +67,42 @@
 
 ---
 ### 目前发现的问题：
-1. 由于是嵌入式版的原因，Python并没有自带`Tkinter` 库/模块，尝试了很多种方法都不行，导致一些小脚本想做一个带小窗口界面不能用简单的TK库，只能使用PyQt5这种稍微复杂/繁琐/庞大的库，又多浪费了几十MB的空间...  
-（如果你有解决办法，希望大佬们可以在仓库的`lssues`反馈一下，或者发送邮件到`1209977969@qq.com`，同时我也会把内容更新到本仓库，谢谢大佬）  
+1. ~~（由于是嵌入式版的原因，Python并没有自带`Tkinter` 库/模块，尝试了很多种方法都不行，导致一些小脚本想做一个带小窗口界面不能用简单的TK库，只能使用PyQt5这种稍微复杂/繁琐/庞大的库，又多浪费了几十MB的空间...）~~  
+**已解决** 安装同版本同位数的install安装版，以`/`为根目录，将install版的 ↓  
+    ```txt
+    /tcl 复制到嵌入式版的根目录 /
+    /Lib/tkinter 复制到 /Lib/site-packages/
+    /DLLs/_tkinter.pyd 复制到 /
+    /DLLs/tcl86t.dll 复制到 /
+    /DLLs/tk86t.dll 复制到 / 
+    ```  
 2. 
 
 > 欢迎反馈，未完待续...
 
+---
+### 在程序打包发布时，可以删除减少容量大小的地方：
+
+Lib\site-packages 约20MB  
+这里面预先装了 pip包管理器和tkinter，视情况处理，均可删除
+
+tkinter库，约12MB  
+/tcl  
+/Lib/site-packages/tkinter  
+/_tkinter.pyd   
+/tcl86t.dll   
+/tk86t.dll   
+以/runtime为根目录，删除这五个文件、文件夹即可   
 
 ---
 ### 我的打包文件下载
 1. 在GitHub页面右边的 **发行版Releases**  
-2. [【蓝奏云】](https://wwt.lanzoue.com/iE2XZ0eeqexc) 密码:diy  
-
+2. [【蓝奏云·合集】](https://wwt.lanzoue.com/b021w3uxc) 密码:diy  
 
 ---
 
 ### 更新日志：（倒序）  
+2022年10月23日 更新v1.1 解决了无法使用tkinter的问题  
 2022年10月23日 发布在GitHub  
 2022年10月22日 创建  
 
