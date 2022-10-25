@@ -1,4 +1,8 @@
-# DIY-Pyinstaller-embed 自定义更方便快捷的Python嵌入式打包程序  
+
+
+# Python程序/脚本，如何打包发布？ 
+
+## 【DIY Pyinstaller embed】 自定义更方便快捷的 Python嵌入式打包程序  
 根据Python嵌入式版本embeddable，搭配PyStand，自定义一个更加方便快捷的Python打包程序。
 
 
@@ -7,7 +11,10 @@
 2. embeddable版Python的内容参考了up主B-E-MAKE [【视频】](https://www.bilibili.com/video/BV1684y1z7Nj)
 
 ---
-# Python程序/脚本，如何打包发布？
+
+
+# 常见的 Python打包方式
+
 ### **1.【Python嵌入式打包】**  
 [【视频】](https://www.bilibili.com/video/BV1684y1z7Nj)-[【图文教程文章】](https://www.cnblogs.com/BEMAKE/p/16806999.html)  
 1. 在Python官网下载 embeddable版本 32位 3.7/3.8版 [【链接Link】](https://www.python.org/downloads/windows/)
@@ -63,6 +70,20 @@
 
 ---
 
+# 【DIY Pyinstaller】 自制 Python打包模板！
+
+### 结合`PyStand`和嵌入式 Python，自制Python打包模板  
+在使用了 `PyStand` 和 嵌入式Python之后，我发现可以把这两者结合起来！  
+- 步骤：
+    - 下载官网`embeddable`嵌入式Python、下载pip工具、移植Tkinter库...等等
+    - 使用 `PyStand` 调用 `runtime` 文件夹内解释器, 去运行同级目录的同名int文件 `PyStand.int`
+    - 添加一些细节，可以方便后续开发 Python程序时，更加高效便捷！
+    - 
+### 造轮子使我快乐！！
+
+---
+---
+
 ### 注意事项：
 1. 为了更简单轻便，`PyStand.exe` 和 `run.BAT` 的启动方式，二选一即可，`PyStand.exe` 程序的注意事项请自行阅读原作者的文章 [【文章链接】](https://www.zhihu.com/question/48776632/answer/2336654649)  
 2. 请注意Python解释器为32位，有些库可能不兼容32位，需要64位请自行去Python官网下64位版的embeddable嵌入式版  
@@ -114,5 +135,4 @@ tkinter库，约12MB
 2022年10月23日 更新v1.1 解决了无法使用tkinter的问题  
 2022年10月23日 发布在GitHub  
 2022年10月22日 创建  
-
 
