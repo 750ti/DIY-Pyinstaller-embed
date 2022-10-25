@@ -1,6 +1,7 @@
 # DIY-Pyinstaller-embed 自定义更方便快捷的Python嵌入式打包程序  
 根据Python嵌入式版本embeddable，搭配PyStand，自定义一个更加方便快捷的Python打包程序。
 
+
 ### 参考资料：
 1. 知乎韦易笑大佬的开源嵌入式Python启动器：PyStand  [【知乎文章】](https://www.zhihu.com/question/48776632/answer/2336654649) / [【GitHub】](https://github.com/skywind3000/PyStand)  
 2. embeddable版Python的内容参考了up主B-E-MAKE [【视频】](https://www.bilibili.com/video/BV1684y1z7Nj)
@@ -14,8 +15,14 @@
 3. 下载`get-pip.py`文件，打开网站把内容复制粘贴到新建get-pip.py文件里保存，以`if --name--`结尾  [【链接Link】](https://bootstrap.pypa.io/get-pip.py)
 4. 安装 pip包管理工具，约20MB 可不装，可在其他环境装了之后复制过去，节省空间。  
     1. 在文件路径上输入cmd打开命令管理器，`python get-pip.py`运行，下载`Lib` `Scripts`等文件夹，第三方库保存在Lib文件夹内。(关闭代理)
-    2. **直接将上面的py保存到txt**，拖动文件到python.exe上可以直接打开，更加简单快捷。  
-5. 记事本打开`python3x._pth` 删掉最后的#注释`#import site` 保存。# 我也不知道有什么用..  
+    2. **直接将文件拖至解释器运行**，拖动文件到python.exe上可以直接打开，更加简单快捷。  
+    3. 使用BAT批处理, 一键安装/重装。（只要移动了文件夹/目录改变，执行pip会报错，需要安装/重装pip）
+        ```bat
+        @echo off
+        chcp 65001
+        .\python.exe .\get-pip.py
+        ```
+5. 记事本打开`python3xx._pth` 删掉最后的#注释`#import site` 保存。# 否则无法正常使用pip  
 6. **安装第三方库**，进入Scripts文件夹，打开cmd，使用正常的pip安装命令即可，如`pip install numpy`, 文件会被安装在当前环境的`Lib\site-packages`文件夹内
 7. **运行程序**：
    1. 在`python.exe`目录打开cmd，键入`python.exe demo.py`即可运行`demo.py`
@@ -25,7 +32,7 @@
         chcp 65001
         .\runtime\python.exe .\demo.py
         ```
-   3. 使用知乎大佬的 PyStand程序调用 ↓ 
+   3. 使用知乎大佬的 PyStand启动器调用 ↓ 
 
 
 ### **2.【PyStand】韦易笑大佬的嵌入式Python启动器**
@@ -60,7 +67,8 @@
 1. 为了更简单轻便，`PyStand.exe` 和 `run.BAT` 的启动方式，二选一即可，`PyStand.exe` 程序的注意事项请自行阅读原作者的文章 [【文章链接】](https://www.zhihu.com/question/48776632/answer/2336654649)  
 2. 请注意Python解释器为32位，有些库可能不兼容32位，需要64位请自行去Python官网下64位版的embeddable嵌入式版  
 3. 嵌入式版的Python压缩后大小为7M，解压后也仅十几M，我打包的包含了pip管理器和相关的库，以及PyQt5, 可自行删除。如`site-packages`和`Scripts`文件夹的内容。  
-4.
+4. 解压后，只要移动了文件夹/解释器目录改变了，执行pip时会报错，重装pip 可解决，建议创建bat批处理一键安装/重装。（见上面安装pip的第3个方法，已添加【一键安装】.bat批处理文件）  
+5. 
 
 
 > 未完待续...
@@ -102,10 +110,9 @@ tkinter库，约12MB
 ---
 
 ### 更新日志：（倒序）  
+2022年10月26日 更新v1.2 发现改变目录后pip包管理工具会失效，则删除了相关文件，需要pip请运行【一键安装】.bat文件  
 2022年10月23日 更新v1.1 解决了无法使用tkinter的问题  
 2022年10月23日 发布在GitHub  
 2022年10月22日 创建  
-
-
 
 
